@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NDHU Campus Agent Lab 成果簡報</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @media print {
+      body { background: white !important; color: black !important; }
+      .slide { display: block !important; page-break-after: always; height: 100vh !important; border: none !important; box-shadow: none !important; }
+      .controls, .nav-btn, .progress-bar { display: none !important; }
+    }
+    .slide-enter {
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between font-sans select-none overflow-hidden">
+
+  <!-- Top bar -->
+  <header class="w-full px-6 py-4 flex justify-between items-center border-b border-slate-800 bg-slate-900/80 backdrop-blur z-20">
+    <div class="flex items-center gap-3">
+      <span class="px-2.5 py-1 bg-blue-600 text-white text-xs font-bold rounded-md tracking-wider">NDHU W05</span>
+      <span class="text-sm font-semibold text-slate-300">東華校園實作 · AI Agent 實作成果報告</span>
+    </div>
+    <div class="flex items-center gap-4 text-xs text-slate-400">
+      <span>組別：<strong class="text-slate-200">NDHU-W05</strong></span>
+      <span>帳號：<strong class="text-slate-200">Wayne518</strong></span>
+      <button onclick="toggleFullscreen()" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition text-xs flex items-center gap-1 border border-slate-700">
+        ⛶ 全螢幕
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Slide Container -->
+  <main class="flex-1 max-w-5xl w-full mx-auto p-6 md:p-10 flex items-center justify-center">
+
+    <!-- Slide 1: 封面 -->
+    <div class="slide slide-enter w-full bg-slate-800/90 border border-slate-700 rounded-2xl p-8 md:p-12 shadow-2xl flex flex-col justify-center items-center text-center space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold">
+        ✨ 國立東華大學通識 · Campus Agent Lab
+      </div>
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+        讓 AI 幫你完成一件校園小事<br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-300">
+          AI Agent 實作與判斷力驗證
+        </span>
+      </h1>
+      <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+        從「社團檔案整理」、「活動挑選器單頁工具」到「惡意計畫審查與安全退回」的完整實踐歷程
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-2xl pt-4">
+        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/60 text-center">
+          <div class="text-xs text-slate-400">執行路線</div>
+          <div class="text-sm font-semibold text-emerald-400">本機 Agent + Git</div>
+        </div>
+        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/60 text-center">
+          <div class="text-xs text-slate-400">完成題目</div>
+          <div class="text-sm font-semibold text-blue-400">A + B + C + D 全通</div>
+        </div>
+        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/60 text-center">
+          <div class="text-xs text-slate-400">版本控制</div>
+          <div class="text-sm font-semibold text-amber-400">7 次規範 Commit</div>
+        </div>
+        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700/60 text-center">
+          <div class="text-xs text-slate-400">核心精神</div>
+          <div class="text-sm font-semibold text-purple-400">看懂·驗證·退回</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: 核心目標與四大判斷能力 -->
+    <div class="slide hidden w-full bg-slate-800/90 border border-slate-700 rounded-2xl p-8 md:p-12 shadow-2xl space-y-6">
+      <div>
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Course Objectives</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">實作核心目標：掌握人類的四大關鍵判斷</h2>
+        <p class="text-sm text-slate-400 mt-1">我們不只交代工作，更要成為嚴格把關成果的指揮者與審查員。</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+        <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-700/60 flex gap-4">
+          <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-lg flex-shrink-0">1</div>
+          <div>
+            <h3 class="text-base font-semibold text-slate-100">看懂它的計畫 (Plan Review)</h3>
+            <p class="text-xs text-slate-400 mt-1">動手前先檢查：讀哪裡、寫哪裡、是否有備份？嚴禁未經確認就隨意改寫或刪檔。</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-700/60 flex gap-4">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg flex-shrink-0">2</div>
+          <div>
+            <h3 class="text-base font-semibold text-slate-100">檢查它的成果 (Verification)</h3>
+            <p class="text-xs text-slate-400 mt-1">以 SHA-256 雜湊與極端條件測試成果，不依賴 AI 單方面的「已完成」宣告。</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-700/60 flex gap-4">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-lg flex-shrink-0">3</div>
+          <div>
+            <h3 class="text-base font-semibold text-slate-100">辨認需確認的動作 (Confirmation)</h3>
+            <p class="text-xs text-slate-400 mt-1">嚴格劃分權限邊界：只處理指定的單一題目資料夾，禁止連外或越權碰觸其他目錄。</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-700/60 flex gap-4">
+          <div class="w-10 h-10 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-lg flex-shrink-0">4</div>
+          <div>
+            <h3 class="text-base font-semibold text-slate-100">退回不合理做法 (Rejection)</h3>
+            <p class="text-xs text-slate-400 mt-1">面對擅自刪檔、自補猜測數據、自動對外公開等具資安風險計畫，能精準退回並提具體修正規範。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: 任務 A -->
+    <div class="slide hidden w-full bg-slate-800/90 border border-slate-700 rounded-2xl p-8 md:p-12 shadow-2xl space-y-6">
+      <div class="flex justify-between items-start">
+        <div>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Task A · 整理社團檔案</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">一張任務卡，整理一個混亂資料夾</h2>
+        </div>
+        <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 text-xs font-semibold rounded-md border border-emerald-500/30">Commit: 148d85f</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
+          <div class="text-xs font-bold text-blue-400 mb-2">1. 完整性檢驗</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            盤點 12 筆 input 檔案，原始檔案 100% 保持只讀不動。所有複製副本經 <strong>SHA-256</strong> 雜湊逐一比對完全吻合。
+          </p>
+        </div>
+
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
+          <div class="text-xs font-bold text-amber-400 mb-2">2. 拒絕「檔名定稿偏誤」</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            <code>proposal_final.txt</code>（戶外30分）與 <code>proposal_final2.txt</code>（室內20分）內容截然不同。堅持不因檔名刪除任何版本，全數保留供決策。
+          </p>
+        </div>
+
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
+          <div class="text-xs font-bold text-purple-400 mb-2">3. 結構化交付</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            分類為 <code>proposals/</code>、<code>admin/</code>、<code>publicity/</code>，產出 <strong>manifest.json</strong>（12 筆來源對照）與 <strong>report.md</strong> 整理報告。
+          </p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-blue-950/40 border border-blue-800/40 text-xs text-blue-200 flex items-center justify-between">
+        <span>💡 <strong>關鍵驗收原則</strong>：原檔不可動、重複檔各留副本、不同版本全保留、產出清單嚴格遵循 JSON 陣列規格。</span>
+      </div>
+    </div>
+
+    <!-- Slide 4: 任務 B 第一版 -->
+    <div class="slide hidden w-full bg-slate-800/90 border border-slate-700 rounded-2xl p-8 md:p-12 shadow-2xl space-y-6">
+      <div class="flex justify-between items-start">
+        <div>
+          <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Task B v1 · 單頁工具開發</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">課間我想做什麼？活動挑選器 v1</h2>
+        </div>
+        <span class="px-2.5 py-1 bg-blue-500/20 text-blue-300 text-xs font-semibold rounded-md border border-blue-500/30">Commit: b8b5847</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60 space-y-2">
+          <div class="text-xs font-bold text-slate-200">📋 核心功能設計</div>
+          <ul class="text-xs text-slate-400 space-y-1.5 list-disc list-inside">
+            <li><strong>零相依離線單頁</strong>：HTML+CSS+JS+內嵌 12 筆活動資料，雙擊即可離線執行。</li>
+            <li><strong>三維複合過濾</strong>：地點（室內/室外/不限）、時間（15/30/60分）、強度（低/中/不限）。</li>
+            <li><strong>歷史狀態維護</strong>：保留最近 5 次成功抽選，最新置頂；無結果不寫入。</li>
+            <li><strong>完整中英雙語</strong>：介面文字、標籤與活動名稱即時切換。</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60 space-y-2">
+          <div class="text-xs font-bold text-emerald-400">🧪 嚴格驗收測試通過率 100%</div>
+          <ul class="text-xs text-slate-300 space-y-1.5">
+            <li><span class="text-emerald-400">✔</span> 室內／15分／低強度 ➔ 精準限制於 A01～A04</li>
+            <li><span class="text-emerald-400">✔</span> 室外／15分／中強度 ➔ <strong>顯示「沒有符合條件的活動」</strong>，絕不偷改條件放寬</li>
+            <li><span class="text-emerald-400">✔</span> 室外／30分／中強度 ➔ 每次抽選必定為 <strong>A09</strong></li>
+            <li><span class="text-emerald-400">✔</span> 重設篩選 ➔ 回到不限/30分/不限，歷史紀錄不受影響</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="p-3 bg-slate-900/80 rounded-lg text-xs text-slate-400 flex items-center gap-2">
+        <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[11px]">合規標註</span>
+        頁面頂端明確標註：「教學模擬活動，不是校方公告」，杜絕資訊混淆。
+      </div>
+    </div>
+
+    <!-- Slide 5: 任務 B 第二版 (迭代) -->
+    <div class="slide hidden w-full bg-slate-800/90 border border-slate-700 rounded-2xl p-8 md:p-12 shadow-2xl space-y-6">
+      <div class="flex justify-between items-start">
+        <div>
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Task B v2 · 需求迭代</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">「至少改一次」：鍵盤快捷鍵極速操作</h2>
+        </div>
+        <span class="px-2.5 py-1 bg-amber-500/20 text-amber-300 text-xs font-semibold rounded-md border border-amber-500/30">Commit: 746fce3</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
+          <div class="text-xs font-bold text-rose-400 mb-2">原來的情況 (Before)</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            使用者每次想抽活動或重設條件時，都必須拿起滑鼠移動游標點選按鈕，在電腦大螢幕連續測試時操作流程略顯繁瑣。
+          </p>
+        </div>
+
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
+          <div class="text-xs font-bold text-blue-400 mb-2">提出的修改 (Request)</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            增加全局鍵盤快捷鍵：按 <code>Space</code> 或 <code>Enter</code> 觸發「幫我選」、按 <code>R</code> 重設篩選；按鈕增加快捷提示徽章並具防呆機制。
+          </p>
+        </div>
+
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
+          <div class="text-xs font-bold text-emerald-400 mb-2">修改與重測 (After & Retest)</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            雙手無需離開鍵盤即可極速抽選與復原；下拉選單操作時不會誤觸；中英文切換時快捷文字同步支援。
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700 text-xs text-slate-300 flex items-center justify-between">
+        <div>
+          <span class="font-bold text-slate-100">性質判定：</span>
+          <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">新需求 (New Requirement)</span>
+          <span class="text-slate-400 ml-2">非 AI 漏做原規格，而是為了提升終端體驗的主動改進。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: 任務 C -->
+    <div class="slide hidden w-full bg-slate-800/90 border border-slate-700 rounded-2xl p-8 md:p-12 shadow-2xl space-y-6">
+      <div class="flex justify-between items-start">
+        <div>
+          <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Task C (選做加分) · 資料清理</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">社團器材資料清洗與記錄品質報告</h2>
+        </div>
+        <span class="px-2.5 py-1 bg-purple-500/20 text-purple-300 text-xs font-semibold rounded-md border border-purple-500/30">Commit: 975b968</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60 space-y-2">
+          <div class="text-xs font-bold text-slate-200">📊 清理統計與規則</div>
+          <ul class="text-xs text-slate-300 space-y-2">
+            <li>• <strong>列數統計</strong>：原始 10 列 ➔ 移除第 6 列完全空列 ➔ 保留 <strong>9 列有效資料</strong>。</li>
+            <li>• <strong>文字修剪</strong>：前後多餘空白自動修剪（如 <code>" Folder / 資料夾 "</code>）。</li>
+            <li>• <strong>狀態標準化</strong>：<code>可借</code>/<code>可出借</code> 統一轉為 <code>available</code>；<code>借出</code> 轉為 <code>borrowed</code>。</li>
+            <li>• <strong>來源回溯</strong>：所有資料均保留 <code>source_row</code>，確保可追蹤至原紀錄。</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60 space-y-2">
+          <div class="text-xs font-bold text-amber-400">⚠️ 異常與衝突如實揭露 (issues.md)</div>
+          <ul class="text-xs text-slate-300 space-y-2">
+            <li>• <strong>缺失數量原樣保留</strong>：<code>EQ04</code> 數量為空字串、<code>EQ05</code> 數量為 <code>-1</code>，絕不擅自猜測或補 0。</li>
+            <li>• <strong>未知狀態列管</strong>：<code>EQ06</code> (剪刀) 為「待盤點」，轉標記為 <code>unknown</code>。</li>
+            <li>• <strong>欄位衝突報告</strong>：<code>EQ02</code> (延長線) 分別登錄數量 2 與 3，完整保留並提醒人工核對。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="p-3 bg-purple-950/40 rounded-lg border border-purple-800/40 text-xs text-purple-200">
+        📌 <strong>重要認知</strong>：資料清洗是維護紀錄品質，面對不確定性應如實呈現，絕不能代替人類管理員「猜測」真相。
+      </div>
+    </div>
+
+    <!-- Slide 7: 任務 D -->
+    <div class="slide hidden w-full bg-slate-800/90 border border-slate-700 rounded-2xl p-8 md:p-12 shadow-2xl space-y-6">
+      <div class="flex justify-between items-start">
+        <div>
+          <span class="text-xs font-bold text-rose-400 uppercase tracking-wider">Task D · 共同討論與安全防禦</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">這份計畫你會按同意嗎？堅決退回！</h2>
+        </div>
+        <span class="px-2.5 py-1 bg-rose-500/20 text-rose-300 text-xs font-semibold rounded-md border border-rose-500/30">Commit: a5f25d8</span>
+      </div>
+
+      <div class="bg-rose-950/30 border border-rose-800/50 p-3.5 rounded-xl text-xs text-rose-200 font-mono">
+        ❌ 模擬惡劣計畫：「我會把 Downloads 全部整理，刪除重複檔，把 final2 當最新版；找不到資料就補一個合理值，完成後自動公開成果。」
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+        <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-700/60">
+          <div class="font-bold text-rose-400">1. 拒絕越權擴大範圍</div>
+          <div class="text-slate-400 mt-1">不可整理整台電腦 Downloads，僅限指定工作資料夾。</div>
+        </div>
+        <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-700/60">
+          <div class="font-bold text-rose-400">2. 拒絕不可逆刪檔</div>
+          <div class="text-slate-400 mt-1">不可直接刪除重複檔，應在 output 留副本或列清單。</div>
+        </div>
+        <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-700/60">
+          <div class="font-bold text-rose-400">3. 拒絕草率認定定稿</div>
+          <div class="text-slate-400 mt-1">不可將 final2 當最新版，必須完整保留所有版本。</div>
+        </div>
+        <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-700/60">
+          <div class="font-bold text-rose-400">4. 拒絕虛構猜測數據</div>
+          <div class="text-slate-400 mt-1">找不到資料不可「補合理值」，需原樣標註異常。</div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-700 text-xs text-slate-300">
+        🔒 <strong>退回守則</strong>：產出成果一律留存在本機，未經使用者人工複審，<strong>嚴禁任何自動連外與公開發布行為</strong>。
+      </div>
+    </div>
+
+    <!-- Slide 8: 結尾與學習總結 -->
+    <div class="slide hidden w-full bg-slate-800/90 border border-slate-700 rounded-2xl p-8 md:p-12 shadow-2xl space-y-6">
+      <div class="flex justify-between items-start">
+        <div>
+          <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">Conclusion & Reflection</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">學習總結：人機協作時代的新素養</h2>
+        </div>
+        <span class="px-2.5 py-1 bg-teal-500/20 text-teal-300 text-xs font-semibold rounded-md border border-teal-500/30">Commit: 3124159</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60 text-center space-y-2">
+          <div class="text-3xl">🧭</div>
+          <div class="text-sm font-bold text-white">清晰的提示與邊界</div>
+          <p class="text-xs text-slate-400">AI 的行動依賴嚴謹的規格限制。清楚界定資料夾與不可做的事項，是防範失控的第一道防線。</p>
+        </div>
+
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60 text-center space-y-2">
+          <div class="text-3xl">🔬</div>
+          <div class="text-sm font-bold text-white">不盲信「已完成」宣告</div>
+          <p class="text-xs text-slate-400">透過客觀雜湊值、邊界測試案例與多語系切換檢驗，用人類的批判性思維確認成果真偽。</p>
+        </div>
+
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60 text-center space-y-2">
+          <div class="text-3xl">🛡️</div>
+          <div class="text-sm font-bold text-white">人類是最後守門員</div>
+          <p class="text-xs text-slate-400">AI 負責加速生產與粗篩，但企畫定案、盤點真偽、安全發布的責任與權限始終在人手中。</p>
+        </div>
+      </div>
+
+      <div class="p-4 bg-gradient-to-r from-blue-900/40 to-teal-900/40 border border-blue-700/40 rounded-xl text-center">
+        <p class="text-sm text-slate-200">
+          全數成果已同步至 GitHub：
+          <a href="https://github.com/Wayne518/agent-lab-w05" target="_blank" class="text-blue-400 hover:underline font-semibold">
+            github.com/Wayne518/agent-lab-w05
+          </a>
+        </p>
+        <p class="text-xs text-slate-400 mt-1">NDHU Campus Agent Lab · 報告完畢，謝謝大家！</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Bottom Navigation & Controls -->
+  <footer class="w-full px-6 py-4 border-t border-slate-800 bg-slate-900/80 backdrop-blur z-20 flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <button onclick="prevSlide()" class="nav-btn px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs border border-slate-700 transition flex items-center gap-1">
+        ◀ 上一張
+      </button>
+      <button onclick="nextSlide()" class="nav-btn px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition flex items-center gap-1 shadow-lg shadow-blue-600/30">
+        下一張 ▶
+      </button>
+      <span class="text-xs text-slate-500 ml-2 hidden sm:inline">（可按鍵盤 ◀ / ▶ 或 空白鍵）</span>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="flex items-center gap-3">
+      <div class="w-36 h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700/60 hidden sm:block">
+        <div id="progress-bar" class="h-full bg-blue-500 transition-all duration-300" style="width: 12.5%;"></div>
+      </div>
+      <span class="text-xs font-mono font-bold text-slate-400" id="slide-indicator">1 / 8</span>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const indicator = document.getElementById('slide-indicator');
+    const progressBar = document.getElementById('progress-bar');
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.remove('hidden');
+          slide.classList.add('slide-enter');
+        } else {
+          slide.classList.add('hidden');
+          slide.classList.remove('slide-enter');
+        }
+      });
+      indicator.textContent = `${currentSlide + 1} / ${totalSlides}`;
+      if (progressBar) {
+        progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        currentSlide = 0;
+        updateSlide();
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        currentSlide = totalSlides - 1;
+        updateSlide();
+      }
+    });
+
+    updateSlide();
+  </script>
+</body>
+</html>
