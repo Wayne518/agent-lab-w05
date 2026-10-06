@@ -147,6 +147,9 @@
       cursor: pointer;
       text-align: center;
       transition: background-color 0.2s, transform 0.05s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .btn:active {
@@ -170,6 +173,31 @@
 
     .btn-secondary:hover {
       background-color: var(--gray-btn-hover);
+    }
+
+    .kbd-hint {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.22);
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      letter-spacing: 0.02em;
+    }
+
+    .btn-secondary .kbd-hint {
+      background: #e2e8f0;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+    }
+
+    .shortcut-tip {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 10px;
     }
 
     .result-section {
@@ -367,8 +395,15 @@
       </div>
 
       <div class="button-group">
-        <button class="btn btn-primary" id="btn-pick" onclick="pickActivity()">幫我選</button>
-        <button class="btn btn-secondary" id="btn-reset" onclick="resetFilters()">重設篩選</button>
+        <button class="btn btn-primary" id="btn-pick" onclick="pickActivity()">
+          <span id="txt-btn-pick">幫我選</span> <span class="kbd-hint" id="kbd-btn-pick">Space / Enter</span>
+        </button>
+        <button class="btn btn-secondary" id="btn-reset" onclick="resetFilters()">
+          <span id="txt-btn-reset">重設篩選</span> <span class="kbd-hint" id="kbd-btn-reset">R</span>
+        </button>
+      </div>
+      <div class="shortcut-tip" id="ui-shortcut-tip">
+        鍵盤快捷鍵：按 [Space / Enter] 幫我選 ｜ 按 [R] 重設篩選
       </div>
     </div>
 
@@ -514,6 +549,7 @@
         optEnergyMedium: "中強度",
         btnPick: "幫我選",
         btnReset: "重設篩選",
+        shortcutTip: "鍵盤快捷鍵：按 [Space / Enter] 幫我選 ｜ 按 [R] 重設篩選",
         clickHint: "請點選上方「幫我選」開始抽選活動",
         noMatch: "沒有符合條件的活動",
         historyTitle: "最近抽選紀錄（最多 5 筆）",
@@ -543,6 +579,7 @@
         optEnergyMedium: "Medium",
         btnPick: "Pick for me",
         btnReset: "Reset Filters",
+        shortcutTip: "Keyboard shortcuts: Press [Space / Enter] to pick | Press [R] to reset",
         clickHint: "Click \"Pick for me\" above to choose an activity",
         noMatch: "No matching activities found",
         historyTitle: "Recent Picks (Max 5)",
@@ -583,8 +620,9 @@
       document.getElementById('opt-energy-low').textContent = t.optEnergyLow;
       document.getElementById('opt-energy-medium').textContent = t.optEnergyMedium;
 
-      document.getElementById('btn-pick').textContent = t.btnPick;
-      document.getElementById('btn-reset').textContent = t.btnReset;
+      document.getElementById('txt-btn-pick').textContent = t.btnPick;
+      document.getElementById('txt-btn-reset').textContent = t.btnReset;
+      document.getElementById('ui-shortcut-tip').textContent = t.shortcutTip;
 
       document.getElementById('ui-history-title').textContent = t.historyTitle;
       document.getElementById('btn-clear-history').textContent = t.btnClearHistory;
@@ -713,6 +751,20 @@
         `;
       }).join('');
     }
+
+    // 鍵盤快捷鍵監聽：Space / Enter 抽選，R 重設篩選
+    window.addEventListener('keydown', function(e) {
+      const tag = (document.activeElement && document.activeElement.tagName) ? document.activeElement.tagName.toLowerCase() : '';
+      if (tag === 'select' || tag === 'input' || tag === 'textarea') return;
+
+      if (e.key === ' ' || e.code === 'Space' || e.key === 'Enter') {
+        e.preventDefault();
+        pickActivity();
+      } else if (e.key === 'r' || e.key === 'R') {
+        e.preventDefault();
+        resetFilters();
+      }
+    });
   </script>
 </body>
 </html>
