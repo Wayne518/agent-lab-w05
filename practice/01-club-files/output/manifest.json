@@ -1,0 +1,62 @@
+[
+  {
+    "source": "proposal_final.txt",
+    "destination": "proposals/proposal_final.txt",
+    "reason": "活動企畫第一版（戶外方案30分鐘），待後續評估與討論。"
+  },
+  {
+    "source": "proposal_final2.txt",
+    "destination": "proposals/proposal_final2.txt",
+    "reason": "活動企畫第二版（室內方案20分鐘），與第一版內容不同，完整保留供比較。"
+  },
+  {
+    "source": "rain_plan.txt",
+    "destination": "proposals/rain_plan.txt",
+    "reason": "雨天備案方案，屬於活動企畫的一環。"
+  },
+  {
+    "source": "next_steps.txt",
+    "destination": "proposals/next_steps.txt",
+    "reason": "後續企畫比較與待辦提醒，歸入企畫相關文件。"
+  },
+  {
+    "source": "budget_draft.txt",
+    "destination": "admin/budget_draft.txt",
+    "reason": "活動紙張預算草案（尚未核定），歸入行政與財務預算。"
+  },
+  {
+    "source": "equipment_list.txt",
+    "destination": "admin/equipment_list.txt",
+    "reason": "活動所需器材與耗材清單，歸入行政物資管理。"
+  },
+  {
+    "source": "equipment_backup.txt",
+    "destination": "admin/equipment_backup.txt",
+    "reason": "器材清單副本（內容與 equipment_list.txt 相同），依規定保留備份副本。"
+  },
+  {
+    "source": "meeting_notes.txt",
+    "destination": "admin/meeting_notes.txt",
+    "reason": "活動籌備會議紀錄，歸入行政紀錄。"
+  },
+  {
+    "source": "announcement.txt",
+    "destination": "publicity/announcement.txt",
+    "reason": "活動公告文案，歸入宣傳推廣類別。"
+  },
+  {
+    "source": "announcement_copy.txt",
+    "destination": "publicity/announcement_copy.txt",
+    "reason": "活動公告副本（內容與 announcement.txt 相同），依規定保留備份副本。"
+  },
+  {
+    "source": "poster_text.txt",
+    "destination": "publicity/poster_text.txt",
+    "reason": "海報宣傳短文案，歸入宣傳推廣類別。"
+  },
+  {
+    "source": "feedback_questions.txt",
+    "destination": "publicity/feedback_questions.txt",
+    "reason": "活動後回饋問卷題目，歸入文宣與活動反饋類別。"
+  }
+]
